@@ -1,11 +1,15 @@
 const jwt = require("jsonwebtoken");
 const { timingSafeEqual, createHash, randomUUID } = require("node:crypto");
+const { verifyPassword } = require("../services/passwordService");
+const { HttpError } = require("../utils/http");
 
 const lifetimeSeconds = 3600;
 const issuer = "hunter";
 const audience = "hunter-admin";
 // Реестр содержит только случайные идентификаторы. Перезапуск закрывает все сеансы.
 const sessions = new Map();
+let activeVerifications = 0;
+const maxConcurrentVerifications = 2;
 
 /** Сравнивает значения фиксированной длины без раннего выхода по символам пароля. */
 function safeEqual(left, right) {
@@ -20,14 +24,20 @@ function removeExpiredSessions() {
 }
 
 /** Выдаёт ограниченный по времени JWT и регистрирует сеанс одного администратора. */
-function issueToken(login, password) {
-  if (
-    typeof login !== "string" ||
-    typeof password !== "string" ||
-    !safeEqual(login, process.env.ADMIN_LOGIN) ||
-    !safeEqual(password, process.env.ADMIN_PASSWORD)
-  )
-    return null;
+async function issueToken(login, password) {
+  if (typeof login !== "string" || typeof password !== "string") return null;
+  // Ограничиваем расход памяти scrypt без очереди, которая могла бы расти бесконечно.
+  if (activeVerifications >= maxConcurrentVerifications)
+    throw new HttpError(503, "Сейчас проверяются другие входы. Повторите через несколько секунд.");
+  let passwordMatches;
+  activeVerifications++;
+  try {
+    // Выполняем ту же проверку и для неверного логина, чтобы не раскрывать его по задержке.
+    passwordMatches = await verifyPassword(password, process.env.ADMIN_PASSWORD_HASH);
+  } finally {
+    activeVerifications--;
+  }
+  if (!safeEqual(login, process.env.ADMIN_LOGIN) || !passwordMatches) return null;
   removeExpiredSessions();
   // Ограничение защищает память и закрывает самые старые сеансы при большом числе вкладок.
   if (sessions.size >= 10) sessions.delete(sessions.keys().next().value);

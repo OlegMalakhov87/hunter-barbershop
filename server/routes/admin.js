@@ -35,7 +35,7 @@ const loginLimit = rateLimit({
   legacyHeaders: false,
   message: { error: "Слишком много попыток. Попробуйте через 30 минут." },
 });
-router.post("/login", loginLimit, loginRules, validate, auth.login);
+router.post("/login", loginLimit, loginRules, validate, asyncRoute(auth.login));
 
 // Все операции ниже, включая загрузки и выход, требуют действующего сеанса.
 router.use(requireAdmin);

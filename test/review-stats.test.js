@@ -3,7 +3,8 @@ const assert = require("node:assert/strict");
 
 process.env.SITE_URL = "http://localhost:3001";
 process.env.ADMIN_LOGIN = "test-admin";
-process.env.ADMIN_PASSWORD = "test-password-12345";
+delete process.env.ADMIN_PASSWORD;
+process.env.ADMIN_PASSWORD_HASH = require("./fixtures/admin-password.json");
 process.env.JWT_SECRET = "test-only-secret-value-with-at-least-32-characters";
 process.env.DB_STORAGE = ":memory:";
 delete process.env.YCLIENTS_BOOKING_URL;

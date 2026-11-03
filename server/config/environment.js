@@ -1,19 +1,25 @@
+require("./runtime").assertNodeVersion();
 const path = require("node:path");
+const { isPasswordHash } = require("../services/passwordService");
 
 const projectDirectory = path.resolve(__dirname, "../..");
 require("dotenv").config({ path: path.join(projectDirectory, ".env") });
 
 /** Проверяет настройки запуска, не раскрывая значения секретов в ошибках. */
 function loadEnvironment() {
-  const required = ["SITE_URL", "ADMIN_LOGIN", "ADMIN_PASSWORD", "JWT_SECRET"];
+  if (process.env.ADMIN_PASSWORD !== undefined) {
+    throw Error(
+      "Открытый ADMIN_PASSWORD больше не используется. Выполните npm run admin:password -- --migrate и перезапустите сервер.",
+    );
+  }
+  const required = ["SITE_URL", "ADMIN_LOGIN", "ADMIN_PASSWORD_HASH", "JWT_SECRET"];
   const missing = required.filter((name) => !process.env[name]);
   if (missing.length) throw Error("Заполните .env: " + missing.join(", "));
   if (process.env.ADMIN_LOGIN.length < 6 || process.env.ADMIN_LOGIN.length > 100) {
     throw Error("ADMIN_LOGIN: от 6 до 100 символов.");
   }
-  if (process.env.ADMIN_PASSWORD.length < 12 || process.env.ADMIN_PASSWORD.length > 100) {
-    throw Error("ADMIN_PASSWORD: от 12 до 100 символов.");
-  }
+  if (!isPasswordHash(process.env.ADMIN_PASSWORD_HASH))
+    throw Error("ADMIN_PASSWORD_HASH: неверный формат. Выполните npm run admin:password.");
   if (process.env.JWT_SECRET.length < 32) throw Error("JWT_SECRET: минимум 32 символа.");
   let siteUrl;
   try {

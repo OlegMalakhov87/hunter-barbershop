@@ -808,6 +808,8 @@
     if (
       reviewToggle?.getAttribute("aria-expanded") === "true" &&
       !reviewContent?.contains(event.target) &&
+      // Настройки аналитики должны предупредить о перезагрузке до сброса отзыва.
+      !event.target.closest(".metrics-settings, .metrics-banner") &&
       !reviewToggle.contains(event.target)
     ) {
       setReviewOpen(false);

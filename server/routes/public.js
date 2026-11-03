@@ -9,11 +9,11 @@ const { asyncRoute } = require("../utils/http");
 const router = express.Router();
 const reviewLimit = rateLimit({
   windowMs: 10 * 60 * 1000,
-  limit: 1,
+  limit: 5,
   skipFailedRequests: true,
   standardHeaders: "draft-7",
   legacyHeaders: false,
-  message: { error: "Отзыв уже отправлен. Повторите позже." },
+  message: { error: "С этой сети уже отправлено пять отзывов. Повторите через 10 минут." },
 });
 router.get("/services", asyncRoute(catalog.services));
 router.get("/masters", asyncRoute(catalog.masters));

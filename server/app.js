@@ -57,6 +57,7 @@ async function start() {
       listener.removeListener("error", reject);
       logEvent("server.started", { host: environment.host, port: environment.port });
       resolve(listener);
+      console.log("Node.js:", process.version);
     });
     listener.once("error", reject);
   });

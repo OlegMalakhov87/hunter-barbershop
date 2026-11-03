@@ -3,7 +3,8 @@ const assert = require("node:assert/strict");
 const jwt = require("jsonwebtoken");
 process.env.SITE_URL = "http://localhost:3001";
 process.env.ADMIN_LOGIN = "test-admin";
-process.env.ADMIN_PASSWORD = "test-password-12345";
+delete process.env.ADMIN_PASSWORD;
+process.env.ADMIN_PASSWORD_HASH = require("./fixtures/admin-password.json");
 process.env.JWT_SECRET = "test-only-secret-value-with-at-least-32-characters";
 process.env.DB_STORAGE = ":memory:";
 process.env.TRUST_PROXY = "false";
@@ -168,10 +169,29 @@ test("сеансы, заголовки, запросы, XSS и загрузки 
       processingConsent: true,
       publicationConsent: true,
     };
+    assert.equal(
+      (await request("/api/reviews", { method: "POST", data: { ...review, text: "коротко" } }))
+        .status,
+      400,
+    );
     const firstReview = await request("/api/reviews", { method: "POST", data: review });
     assert.equal(firstReview.status, 201);
     assert.equal((await Review.findOne()).status, "pending");
+    // Пять посетителей одной сети могут отправить отзывы; шестой запрос ограничивается.
+    for (let index = 1; index < 5; index++) {
+      assert.equal(
+        (
+          await request("/api/reviews", {
+            method: "POST",
+            data: { ...review, name: "Посетитель " + index },
+          })
+        ).status,
+        201,
+      );
+    }
+    assert.equal(await Review.count(), 5);
     assert.equal((await request("/api/reviews", { method: "POST", data: review })).status, 429);
+    assert.equal(await Review.count(), 5);
     assert.equal((await request("/api/admin/logout", { token, method: "POST" })).status, 200);
     assert.equal((await request("/api/admin/contacts", { token })).status, 401);
     for (let i = 0; i < 5; i++)

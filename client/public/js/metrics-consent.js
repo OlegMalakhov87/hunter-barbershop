@@ -63,8 +63,28 @@
     document.head.append(script);
   }
 
+  /** Проверяет незавершённый отзыв без сохранения его текста в браузерное хранилище. */
+  function hasUnfinishedReview() {
+    const form = document.getElementById("review-form");
+    if (!form) return false;
+    return [...form.elements].some((field) =>
+      field.type === "checkbox"
+        ? field.checked
+        : ["name", "rating", "text"].includes(field.name) && field.value !== "",
+    );
+  }
+
   function choose(value) {
     const hadMetrics = started;
+    if (
+      value === "no" &&
+      hadMetrics &&
+      hasUnfinishedReview() &&
+      !window.confirm(
+        "Отключение аналитики обновит страницу. Заполненный отзыв будет удалён. Продолжить?",
+      )
+    )
+      return;
     saveChoice(value);
     setBannerVisible(false);
     if (value === "yes") {
@@ -109,7 +129,7 @@
     heading.textContent = "Настройки аналитики";
     const description = document.createElement("p");
     description.textContent =
-      "Разрешить Яндекс Метрике собирать данные о посещении, файлы cookie и технические сведения? Это помогает нам улучшать сайт. Вы можете отказаться и изменить выбор позже в подвале страницы. Выбор касается счётчика сайта; карта и запись работают через сторонние сервисы.";
+      "Разрешить Яндекс Метрике собирать данные о посещении, файлы cookie и технические сведения? Это помогает нам улучшать сайт. Вы можете отказаться и изменить выбор позже внизу страницы. Выбор касается счётчика сайта; карта и запись работают через сторонние сервисы.";
     const policy = document.createElement("a");
     policy.href = "/privacy";
     policy.textContent = "Политика обработки персональных данных";

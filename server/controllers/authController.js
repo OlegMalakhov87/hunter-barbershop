@@ -1,8 +1,8 @@
 const { issueToken, revokeSession } = require("../middleware/auth");
 const { logEvent } = require("../services/logger");
 
-function login(req, res) {
-  const token = issueToken(req.body.login, req.body.password);
+async function login(req, res) {
+  const token = await issueToken(req.body.login, req.body.password);
   logEvent(token ? "auth.login_success" : "auth.login_failed", { requestId: res.locals.requestId });
   if (!token) return res.status(401).json({ error: "Неверный логин или пароль." });
   return res.json({ token });
