@@ -1,0 +1,10 @@
+node_modules/
+.pnpm-store/
+.vscode/
+.env
+data/
+.env.*
+!.env.example
+client/public/images/uploads/
+*.log
+.DS_Store

@@ -1,0 +1,597 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Панель управления — Hunter</title>
+    <meta name="description" content="Панель управления барбершопа Hunter." />
+    <meta name="robots" content="noindex,nofollow" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="any" />
+    <link rel="icon" href="/images/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="icon" href="/images/favicon-48.png" type="image/png" sizes="48x48" />
+    <link rel="icon" href="/images/favicon-120.png" type="image/png" sizes="120x120" />
+    <link rel="icon" href="/images/favicon-192.png" type="image/png" sizes="192x192" />
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <script defer src="/js/select.js?v=2"></script>
+    <script defer src="/js/admin.js"></script>
+  </head>
+
+  <body class="admin-body">
+    <a class="skip-link" href="#main">К содержимому</a>
+    <!-- Заголовок для панели администратора -->
+    <header class="site-header admin-header">
+      <div class="container header-inner">
+        <a class="brand" href="/" aria-label="Hunter, главная">
+          <img class="brand-badge" src="/images/hunter-label.webp" alt="" width="52" height="52" />
+          <span class="brand-name">HUNTER<small>Панель управления</small></span>
+        </a>
+        <nav aria-label="Навигация панели">
+          <a class="text-link" href="/">На сайт <span aria-hidden="true">↗</span></a>
+        </nav>
+      </div>
+    </header>
+    <!-- Форма входа -->
+    <main id="main" class="admin-main container">
+      <section id="login-panel" class="login-panel">
+        <p class="eyebrow">Для сотрудников</p>
+        <h1>Вход в панель</h1>
+        <form id="login-form" class="admin-form">
+          <div class="field">
+            <label for="admin-login">Логин</label>
+            <input id="admin-login" name="login" autocomplete="username" required />
+          </div>
+          <div class="field">
+            <label for="admin-password">Пароль</label>
+            <input
+              id="admin-password"
+              name="password"
+              type="password"
+              autocomplete="current-password"
+              required
+            />
+          </div>
+          <button class="button button-primary" type="submit">
+            Войти <span aria-hidden="true">↗</span>
+          </button>
+          <p id="login-message" role="alert"></p>
+        </form>
+      </section>
+      <!-- Панель управления "Кнопки навигации" -->
+      <section id="dashboard" hidden>
+        <div class="dashboard-heading">
+          <div>
+            <p class="eyebrow">HUNTER</p>
+            <h1>Управление сайтом</h1>
+          </div>
+          <button class="button button-ghost" id="logout-button" type="button">Выйти</button>
+        </div>
+        <div class="admin-tabs" role="tablist" aria-label="Разделы панели">
+          <button
+            class="admin-tab active"
+            role="tab"
+            aria-selected="true"
+            aria-controls="services-panel"
+            id="tab-services"
+            data-tab="services"
+            type="button"
+          >
+            Услуги
+          </button>
+          <button
+            class="admin-tab"
+            role="tab"
+            aria-selected="false"
+            aria-controls="masters-panel"
+            id="tab-masters"
+            data-tab="masters"
+            type="button"
+          >
+            Мастера
+          </button>
+          <button
+            class="admin-tab"
+            role="tab"
+            aria-selected="false"
+            aria-controls="reviews-panel"
+            id="tab-reviews"
+            data-tab="reviews"
+            type="button"
+          >
+            Отзывы
+          </button>
+          <button
+            class="admin-tab"
+            role="tab"
+            aria-selected="false"
+            aria-controls="photos-panel"
+            id="tab-photos"
+            data-tab="photos"
+            type="button"
+          >
+            Фотографии
+          </button>
+          <button
+            class="admin-tab"
+            role="tab"
+            aria-selected="false"
+            aria-controls="contacts-panel"
+            id="tab-contacts"
+            data-tab="contacts"
+            type="button"
+          >
+            Контакты
+          </button>
+          <button
+            class="admin-tab"
+            role="tab"
+            aria-selected="false"
+            aria-controls="legal-panel"
+            id="tab-legal"
+            data-tab="legal"
+            type="button"
+          >
+            Юр. документы
+          </button>
+        </div>
+        <p id="dashboard-message" role="status" aria-live="polite"></p>
+        <!-- Панель управления - Раздел - Услуги -->
+        <section
+          id="services-panel"
+          role="tabpanel"
+          aria-labelledby="tab-services"
+          class="admin-section"
+        >
+          <div class="admin-section-head">
+            <h2>Услуги</h2>
+          </div>
+          <form id="service-form" class="admin-form admin-edit-form">
+            <input type="hidden" name="id" />
+            <h3 id="service-form-title" class="admin-form-title">Новая услуга</h3>
+            <div class="form-grid">
+              <div class="field">
+                <label for="service-name">Название</label
+                ><input
+                  id="service-name"
+                  name="name"
+                  maxlength="100"
+                  required
+                  placeholder="Название услуги"
+                />
+              </div>
+              <div class="field">
+                <label for="service-category">Категория</label
+                ><input
+                  id="service-category"
+                  name="category"
+                  maxlength="50"
+                  required
+                  placeholder="Категория услуги"
+                />
+              </div>
+              <div class="field">
+                <label for="service-barber-price">Цена барбера, ₽</label>
+                <input
+                  id="service-barber-price"
+                  name="barberPrice"
+                  type="number"
+                  min="0"
+                  max="100000"
+                  step="1"
+                  inputmode="numeric"
+                  placeholder="Не оказывает"
+                  aria-describedby="service-price-hint service-price-error"
+                />
+              </div>
+              <div class="field">
+                <label for="service-top-barber-price">Цена топ-барбера, ₽</label>
+                <input
+                  id="service-top-barber-price"
+                  name="topBarberPrice"
+                  type="number"
+                  min="0"
+                  max="100000"
+                  step="1"
+                  inputmode="numeric"
+                  placeholder="Не оказывает"
+                  aria-describedby="service-price-hint service-price-error"
+                />
+              </div>
+              <p class="field-full service-price-hint" id="service-price-hint">
+                Укажите хотя бы одну цену. Пустое поле означает, что мастер этой категории услугу не
+                оказывает.
+              </p>
+              <p class="field-full service-price-error" id="service-price-error" role="alert"></p>
+              <div class="field field-full">
+                <label for="service-description">Описание</label
+                ><textarea
+                  id="service-description"
+                  name="description"
+                  placeholder="Описание услуги (необязательно)"
+                  maxlength="500"
+                  rows="3"
+                ></textarea>
+              </div>
+            </div>
+            <label class="checkbox-field"
+              ><input name="isPopular" type="checkbox" /> Показывать в разделе «Популярное»</label
+            >
+            <label class="checkbox-field">
+              <input name="isActive" type="checkbox" checked /> Показывать на сайте</label
+            >
+            <div class="form-actions">
+              <button class="button button-primary" type="submit">Сохранить услугу</button>
+              <button class="button button-ghost" type="reset">Сбросить</button>
+            </div>
+          </form>
+          <h3 class="admin-list-title">Услуги в прайсе</h3>
+          <div id="admin-services" class="admin-cards"></div>
+        </section>
+        <!-- Раздел - Мастера -->
+        <section
+          id="masters-panel"
+          role="tabpanel"
+          aria-labelledby="tab-masters"
+          class="admin-section"
+          hidden
+        >
+          <div class="admin-section-head">
+            <h2>Мастера</h2>
+          </div>
+          <form id="master-form" class="admin-form admin-edit-form">
+            <input type="hidden" name="id" />
+            <input id="master-photo-path" type="hidden" name="photo" />
+            <h3 id="master-form-title" class="admin-form-title">Новый мастер</h3>
+            <div class="form-grid">
+              <div class="field">
+                <label for="master-name">Имя</label
+                ><input
+                  id="master-name"
+                  name="name"
+                  maxlength="80"
+                  required
+                  placeholder="Имя мастера"
+                />
+              </div>
+              <div class="field">
+                <label for="master-role">Должность</label
+                ><input
+                  id="master-role"
+                  name="role"
+                  maxlength="80"
+                  placeholder="Барбер/Топ-барбер"
+                  required
+                />
+              </div>
+              <div class="field field-full">
+                <label for="master-description">Информация о мастере</label
+                ><textarea
+                  id="master-description"
+                  name="description"
+                  placeholder="Дополнительная информация (необязательно)"
+                  maxlength="500"
+                  rows="3"
+                ></textarea>
+              </div>
+              <div class="field field-full">
+                <label for="master-photo-file"
+                  >Фото мастера (PNG, JPEG или WebP, до 5 МБ; сохранится в WebP)</label
+                >
+                <div class="admin-file-field">
+                  <input
+                    id="master-photo-file"
+                    name="photoFile"
+                    type="file"
+                    accept="image/png,image/jpeg,image/webp"
+                    data-image-rules="__MASTER_IMAGE_RULES__"
+                    aria-describedby="master-photo-requirements master-photo-hint master-photo-file-error"
+                  />
+                  <div class="admin-image-preview">
+                    <img id="master-photo-preview" alt="Предпросмотр фото мастера" hidden />
+                    <span id="master-photo-hint">Фото пока не выбрано</span>
+                  </div>
+                </div>
+                <small id="master-photo-requirements">__MASTER_IMAGE_HINT__</small>
+                <p id="master-photo-file-error" class="admin-image-error" role="alert" hidden></p>
+              </div>
+            </div>
+            <label class="checkbox-field">
+              <input name="isActive" type="checkbox" checked /> Показывать на сайте</label
+            >
+            <div class="form-actions">
+              <button class="button button-primary" type="submit">Сохранить мастера</button>
+              <button class="button button-ghost" type="reset">Сбросить</button>
+            </div>
+          </form>
+          <h3 class="admin-list-title">Список мастеров</h3>
+          <div id="admin-masters" class="admin-cards"></div>
+        </section>
+        <!-- Раздел - Отзывы -->
+        <section
+          id="reviews-panel"
+          role="tabpanel"
+          aria-labelledby="tab-reviews"
+          class="admin-section"
+          hidden
+        >
+          <div class="admin-section-head">
+            <h2>Отзывы</h2>
+            <button class="button button-ghost" id="refresh-reviews" type="button">Обновить</button>
+          </div>
+          <p class="muted">Новые отзывы появятся на сайте после вашего одобрения.</p>
+          <p class="muted">
+            Срок хранения считается с отправки отзыва. Смена статуса его не продлевает. После
+            перевода старого отзыва в отклонённые он может попасть под автоматическую очистку.
+            Подтверждения удаляются вместе с отзывом.
+          </p>
+          <div id="admin-reviews" class="admin-review-list"></div>
+        </section>
+        <!-- Раздел - Фотографии -->
+        <section
+          id="photos-panel"
+          role="tabpanel"
+          aria-labelledby="tab-photos"
+          class="admin-section"
+          hidden
+        >
+          <div class="admin-section-head">
+            <h2>Фотографии</h2>
+            <button class="button button-ghost" id="refresh-photos" type="button">Обновить</button>
+          </div>
+          <form id="photo-form" class="admin-form admin-edit-form">
+            <input type="hidden" name="id" />
+            <h3 id="photo-form-title" class="admin-form-title">Новое фото</h3>
+            <div class="form-grid">
+              <div class="field">
+                <label for="photo-category">Раздел</label
+                ><select id="photo-category" name="category" required>
+                  <option value="work">Работы</option>
+                  <option value="atmosphere">Атмосфера</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="photo-file">Фото (PNG, JPEG или WebP, до 5 МБ; сохранится в WebP)</label
+                ><input
+                  id="photo-file"
+                  name="file"
+                  type="file"
+                  accept="image/png,image/jpeg,image/webp"
+                  data-image-rules="__GALLERY_IMAGE_RULES__"
+                  aria-describedby="photo-requirements photo-file-hint photo-file-error"
+                  required
+                />
+                <small id="photo-requirements">__GALLERY_IMAGE_HINT__</small>
+                <p id="photo-file-error" class="admin-image-error" role="alert" hidden></p>
+                <div class="admin-image-preview">
+                  <img id="photo-current-preview" alt="Предпросмотр фотографии" hidden />
+                  <span id="photo-file-hint">Выберите фото для загрузки</span>
+                </div>
+              </div>
+              <div class="field field-full">
+                <label for="photo-caption">Описание</label
+                ><input
+                  id="photo-caption"
+                  name="caption"
+                  minlength="3"
+                  maxlength="160"
+                  placeholder="Описание фотографии (необязательно)"
+                />
+              </div>
+            </div>
+            <div class="form-actions">
+              <button class="button button-primary" id="photo-submit" type="submit">
+                Добавить фото
+              </button>
+              <button class="button button-ghost" type="reset">Сбросить</button>
+            </div>
+          </form>
+          <h3 class="admin-list-title">Фотографии на сайте</h3>
+          <div id="admin-photos" class="admin-photo-list"></div>
+        </section>
+        <!-- Раздел - Контакты -->
+        <section
+          id="contacts-panel"
+          role="tabpanel"
+          aria-labelledby="tab-contacts"
+          class="admin-section"
+          hidden
+        >
+          <div class="admin-section-head">
+            <h2>Контакты</h2>
+          </div>
+          <p class="muted">
+            Укажите телефон и ссылки для связи. Пустая ссылка скрывает соответствующий сервис.
+            Ссылка после обработки должна быть не длиннее 2048 символов; уберите лишние параметры,
+            если она слишком длинная.
+          </p>
+          <form id="contacts-form" class="admin-form admin-edit-form">
+            <div class="form-grid">
+              <div class="field field-full">
+                <label for="contact-phone">Номер телефона</label>
+                <input
+                  id="contact-phone"
+                  name="phone"
+                  type="tel"
+                  inputmode="tel"
+                  autocomplete="tel"
+                  minlength="8"
+                  maxlength="40"
+                  pattern="\+?[0-9 \(\)\-]{8,40}"
+                  placeholder="+7 (900) 000-00-00"
+                  aria-describedby="contact-phone-hint"
+                  required
+                  disabled
+                />
+                <small id="contact-phone-hint" class="muted">Для звонков на сайте.</small>
+              </div>
+              <div class="field field-full">
+                <label for="contact-whatsapp">WhatsApp</label>
+                <input
+                  id="contact-whatsapp"
+                  name="whatsappUrl"
+                  type="url"
+                  maxlength="2048"
+                  placeholder="https://wa.me/79000000000"
+                  disabled
+                />
+              </div>
+              <div class="field field-full">
+                <label for="contact-telegram">Telegram</label>
+                <input
+                  id="contact-telegram"
+                  name="telegramUrl"
+                  type="url"
+                  maxlength="2048"
+                  placeholder="https://t.me/example"
+                  disabled
+                />
+              </div>
+              <div class="field field-full">
+                <label for="contact-vk">ВКонтакте</label>
+                <input
+                  id="contact-vk"
+                  name="vkUrl"
+                  type="url"
+                  maxlength="2048"
+                  placeholder="https://vk.ru/example"
+                  disabled
+                />
+              </div>
+              <div class="field field-full">
+                <label for="contact-max">МАКС</label>
+                <input
+                  id="contact-max"
+                  name="maxUrl"
+                  type="url"
+                  maxlength="2048"
+                  placeholder="https://max.ru/u/…"
+                  aria-describedby="contact-max-hint"
+                  disabled
+                />
+              </div>
+              <div class="field field-full">
+                <label for="contact-instagram">Instagram</label>
+                <input
+                  id="contact-instagram"
+                  name="instagramUrl"
+                  type="url"
+                  maxlength="2048"
+                  placeholder="https://www.instagram.com/example/"
+                  disabled
+                />
+              </div>
+            </div>
+            <div class="form-actions">
+              <button class="button button-primary" type="submit" disabled>
+                Сохранить контакты
+              </button>
+              <button class="button button-ghost" type="reset" disabled>Сбросить</button>
+            </div>
+            <p id="contacts-message" role="status" aria-live="polite"></p>
+          </form>
+        </section>
+        <!-- Раздел - Юридические документы -->
+        <section
+          id="legal-panel"
+          role="tabpanel"
+          aria-labelledby="tab-legal"
+          class="admin-section"
+          hidden
+        >
+          <div class="admin-section-head">
+            <h2>Политика персональных данных</h2>
+          </div>
+          <p class="muted">
+            Заполните отмеченные поля, проверьте текст и сохраните его. Пустая строка разделяет
+            абзацы; строки вида «1. Заголовок» отображаются как заголовки.
+          </p>
+          <form id="privacy-form" class="admin-form admin-edit-form">
+            <div class="field">
+              <label for="privacy-text">Текст политики</label>
+              <textarea
+                id="privacy-text"
+                name="text"
+                rows="22"
+                minlength="30"
+                maxlength="12000"
+                required
+                disabled
+              ></textarea>
+            </div>
+            <div class="form-actions">
+              <button class="button button-primary" type="submit" disabled>
+                Сохранить политику
+              </button>
+              <button class="button button-ghost" type="reset" disabled>Сбросить изменения</button>
+              <a class="text-link" href="/privacy" target="_blank" rel="noopener noreferrer"
+                >Открыть страницу ↗</a
+              >
+            </div>
+            <p id="privacy-message" role="status" aria-live="polite"></p>
+          </form>
+          <div class="admin-section-head legal-documents-heading">
+            <h2>Согласия</h2>
+          </div>
+          <p class="muted">
+            Заполните отмеченные поля и проверьте каждый документ. После сохранения он сразу
+            появляется на сайте.
+          </p>
+          <form id="processing-consent-form" class="admin-form admin-edit-form consent-edit-form">
+            <div class="field">
+              <label for="processing-consent-text">Согласие на обработку данных</label
+              ><textarea
+                id="processing-consent-text"
+                name="text"
+                rows="16"
+                minlength="30"
+                maxlength="12000"
+                required
+                disabled
+              ></textarea>
+            </div>
+            <div class="form-actions">
+              <button class="button button-primary" type="submit" disabled>Сохранить</button
+              ><button class="button button-ghost" type="reset" disabled>Сбросить</button
+              ><a class="text-link" href="/consent" target="_blank" rel="noopener noreferrer"
+                >Открыть документ ↗</a
+              >
+            </div>
+            <p id="processing-consent-message" role="status" aria-live="polite"></p>
+          </form>
+          <form id="publication-consent-form" class="admin-form admin-edit-form consent-edit-form">
+            <div class="field">
+              <label for="publication-consent-text">Отдельное согласие на публикацию отзыва</label
+              ><textarea
+                id="publication-consent-text"
+                name="text"
+                rows="16"
+                minlength="30"
+                maxlength="12000"
+                required
+                disabled
+              ></textarea>
+            </div>
+            <div class="form-actions">
+              <button class="button button-primary" type="submit" disabled>Сохранить</button
+              ><button class="button button-ghost" type="reset" disabled>Сбросить</button
+              ><a
+                class="text-link"
+                href="/publication-consent"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Открыть документ ↗</a
+              >
+            </div>
+            <p id="publication-consent-message" role="status" aria-live="polite"></p>
+          </form>
+        </section>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="container footer-bottom">
+        <span>Hunter · Смоленск</span>
+        <a href="/">На главную</a>
+      </div>
+    </footer>
+  </body>
+</html>

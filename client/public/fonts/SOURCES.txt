@@ -1,0 +1,19 @@
+Manrope. Локальные файлы Google Fonts, загружены для Hunter.
+manrope-1.woff2 sha256=3c09135e88bbfcd848e99be137710afbb615a8d9a73c5c48e6cb0245a162af1d
+Источник: https://fonts.gstatic.com/s/manrope/v23/xn7gYHE41ni1AdIRggqxSuXd.woff2
+
+manrope-2.woff2 sha256=447c49583b1b735cc6f566151db1d24354cec41076c55dd98455cfbde9e806c1
+Источник: https://fonts.gstatic.com/s/manrope/v23/xn7gYHE41ni1AdIRggOxSuXd.woff2
+
+manrope-3.woff2 sha256=e507c109c31789b33994646b457ee288639324516357250607c9b1398186e069
+Источник: https://fonts.gstatic.com/s/manrope/v23/xn7gYHE41ni1AdIRggSxSuXd.woff2
+
+manrope-4.woff2 sha256=dbf64d973b3987844df30992c93f47d24ac8935ee8c9b1e320942aeb1b367703
+Источник: https://fonts.gstatic.com/s/manrope/v23/xn7gYHE41ni1AdIRggixSuXd.woff2
+
+manrope-5.woff2 sha256=2f7335119075b2079f1d882530bbc18728461612bf90743203d73a74a48f4d9b
+Источник: https://fonts.gstatic.com/s/manrope/v23/xn7gYHE41ni1AdIRggmxSuXd.woff2
+
+manrope-6.woff2 sha256=8c2def024c1bf31aacf3624ae3c4d701269b4ec3dc765c04830839f0d36b2d9e
+Источник: https://fonts.gstatic.com/s/manrope/v23/xn7gYHE41ni1AdIRggexSg.woff2
+Лицензия: https://raw.githubusercontent.com/google/fonts/main/ofl/manrope/OFL.txt

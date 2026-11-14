@@ -1,0 +1,578 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Hunter — барбершоп в Смоленске</title>
+    <meta
+      name="description"
+      content="Мужская стрижка и уход за бородой в барбершопе Hunter, Смоленск, пр-т. Строителей, 1/42, ТЦ Рай, 2 этаж. Запишитесь онлайн."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Hunter — барбершоп в Смоленске" />
+    <meta property="og:description" content="Стрижка, борода и время для себя. Запись онлайн." />
+    <meta property="og:url" content="__SITE_URL__/" />
+    <link rel="canonical" href="__SITE_URL__/" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="any" />
+    <link rel="icon" href="/images/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="icon" href="/images/favicon-48.png" type="image/png" sizes="48x48" />
+    <link rel="icon" href="/images/favicon-120.png" type="image/png" sizes="120x120" />
+    <link rel="icon" href="/images/favicon-192.png" type="image/png" sizes="192x192" />
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <script defer src="/js/select.js?v=2"></script>
+    <script defer src="/js/site.js"></script>
+    <script type="application/ld+json" id="business-schema">
+      __LOCAL_BUSINESS_SCHEMA__
+    </script>
+    <script type="application/ld+json" id="services-schema">
+      __SERVICE_SCHEMA__
+    </script>
+  </head>
+
+  <body
+    class="home-page"
+    data-booking-widget-script="__BOOKING_WIDGET_SCRIPT__"
+    data-booking-widget-url="__BOOKING_WIDGET_URL__"
+  >
+    <a class="skip-link" href="#main">К содержимому</a>
+    <!-- Навигация по сайту -->
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="/" aria-label="Barbershop Hunter, главная">
+          <img
+            class="brand-badge"
+            src="/images/hunter-label.webp"
+            alt="Barbershop Hunter"
+            width="52"
+            height="52"
+          />
+          <span class="brand-name">HUNTER<small>BARBERSHOP · SMOLENSK</small></span></a
+        >
+        <a class="header-phone" data-phone-link href="tel:+79156548842"
+          ><span data-phone-text>+7 (915) 654-88-42</span></a
+        >
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-label="Открыть меню"
+          aria-expanded="false"
+          aria-controls="site-nav"
+        >
+          <span></span><span></span><span></span>
+        </button>
+        <nav class="site-nav" id="site-nav" aria-label="Основная навигация">
+          <a class="active" aria-current="page" href="#main">Главная</a>
+          <a href="#services">Услуги</a>
+          <a href="#masters">Мастера</a>
+          <a href="#reviews">Отзывы</a>
+          <a href="#contacts">Контакты</a>
+          <a class="nav-cta" href="/booking">Выбрать время</a>
+        </nav>
+      </div>
+    </header>
+    <main id="main">
+      <!-- Секция "Главная". -->
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <p class="hero-location">БАРБЕРШОП · СМОЛЕНСК</p>
+            <h1 id="hero-title">Красивая стрижка.<br />Это важно.</h1>
+            <p class="hero-lead">
+              Стрижка, оформление бороды и уход. Обсудим форму, подберём стрижку и спокойно сделаем
+              своё дело.
+            </p>
+            <div class="hero-facts">
+              <p>пр-т. Строителей, 1/42 <span>ТЦ Рай, 2 этаж</span></p>
+              <p>Каждый день <span>10:00–20:00</span></p>
+            </div>
+            <div class="hero-actions">
+              <a class="button button-primary" href="/booking">Выбрать время</a>
+              <a class="button button-ghost" href="#services">Посмотреть цены</a>
+            </div>
+            __HERO_PRICE_NOTE__
+          </div>
+          <div class="hero-visual">
+            <img
+              class="hero-photo"
+              src="/images/hunter-room.webp"
+              width="1254"
+              height="854"
+              alt="Эргономичные кожаные кресла и продуманные рабочие места создают идеальные условия для преображения"
+              fetchpriority="high"
+            />
+            <img
+              class="hero-seal"
+              src="/images/hunter-hero-seal.webp"
+              alt="Barbershop Hunter"
+              aria-hidden="true"
+              width="768"
+              height="768"
+              decoding="async"
+            />
+            <p class="hero-photo-caption">Ждём тебя на стрижку</p>
+          </div>
+        </div>
+      </section>
+      <!-- Секция "Услуги" -->
+      <section class="section services-section" id="services">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <h2>Услуги и цены</h2>
+              <p class="section-description">
+                Выбери услугу и категорию мастера. Время визита можно подобрать в онлайн-записи.
+              </p>
+            </div>
+          </div>
+          <div
+            class="service-filters"
+            id="service-filters"
+            role="group"
+            aria-label="Категории услуг"
+          ></div>
+          <div class="service-list" id="home-services">__SERVICES_CONTENT__</div>
+        </div>
+      </section>
+      <!-- Секция "Команда" -->
+      <section class="section masters-section" id="masters">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <h2>К кому пойдём?</h2>
+              <p class="section-description">
+                Познакомься с командой HUNTER. Мастера и свободное время доступны в форме записи.
+              </p>
+            </div>
+          </div>
+          <!-- На компьютере видны все мастера; на небольшом экране работает свайп. -->
+          <div
+            class="master-grid carousel-track"
+            id="home-masters"
+            role="region"
+            aria-label="Мастера HUNTER"
+          >
+            __MASTERS_CONTENT__
+          </div>
+        </div>
+      </section>
+      <!-- Секция "Работы мастеров"-->
+      <section class="section works-section" id="works">
+        <div class="container work-showcase">
+          <div class="work-heading">
+            <h2>Работы мастеров</h2>
+            <p class="muted">Форма, детали и результат.</p>
+          </div>
+          <div class="work-grid" id="work-photos" aria-label="Фотографии работ мастеров">
+            <p class="loading-state">Загружаем фотографии…</p>
+          </div>
+        </div>
+        <div class="container gallery-action">
+          <button class="button button-ghost" type="button" data-gallery-more="work-photos" hidden>
+            Показать ещё
+          </button>
+        </div>
+      </section>
+      <!-- Секция "Галерея" -->
+      <section class="section gallery-section" id="gallery">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <h2>Наше место</h2>
+            </div>
+          </div>
+          <div class="place-intro" id="about">
+            <p>
+              Всё просто: устраивайся в кресле, задавай вопросы и обсуждай стрижку. Мастер выслушает
+              и поможет с формой.
+            </p>
+            <p>Барбершоп, куда удобно заглянуть за стрижкой и вернуться снова.</p>
+          </div>
+          <div class="gallery-grid" id="atmosphere-photos" aria-label="Фотографии барбершопа">
+            <p class="loading-state">Загружаем фотографии…</p>
+          </div>
+          <div class="gallery-action">
+            <button
+              class="button button-ghost"
+              type="button"
+              data-gallery-more="atmosphere-photos"
+              hidden
+            >
+              Показать ещё
+            </button>
+          </div>
+        </div>
+      </section>
+      <!-- Секция "Отзывы" -->
+      <section class="section review-section" id="reviews">
+        <div class="container review-grid">
+          <div class="review-intro">
+            <h2>После стрижки</h2>
+            <p class="muted">Были у нас? Расскажите, как прошёл визит.</p>
+            <p class="review-source">Отзывы, оставленные на сайте</p>
+            <div id="review-stats" class="review-stats" aria-live="polite"></div>
+          </div>
+          <div class="review-main">
+            <div class="carousel-frame">
+              <div class="carousel-controls">
+                <button
+                  class="carousel-arrow"
+                  type="button"
+                  data-carousel-prev="reviews-track"
+                  aria-label="Предыдущий отзыв"
+                  aria-controls="reviews-track"
+                >
+                  ←</button
+                ><button
+                  class="carousel-arrow"
+                  type="button"
+                  data-carousel-next="reviews-track"
+                  aria-label="Следующий отзыв"
+                  aria-controls="reviews-track"
+                >
+                  →
+                </button>
+              </div>
+              <div
+                class="review-carousel carousel-track"
+                id="reviews-track"
+                role="region"
+                aria-label="Отзывы, прокручиваемый список"
+                tabindex="0"
+              >
+                <p class="loading-state">Загружаем отзывы…</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container review-action">
+          <button
+            class="button button-ghost"
+            id="review-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="review-form-panel"
+          >
+            Оставить отзыв <span aria-hidden="true">↓</span>
+          </button>
+        </div>
+        <p
+          class="container form-message success review-status"
+          id="review-status"
+          role="status"
+          aria-atomic="true"
+        ></p>
+        <div class="container review-form-panel" id="review-form-panel" inert>
+          <div class="review-form-wrap">
+            <div class="review-form-intro">
+              <h3>Как прошёл визит?</h3>
+              <p class="muted">
+                Напишите, что понравилось и что можно сделать лучше. Ваш отзыв появится после
+                проверки модератором.
+              </p>
+            </div>
+            <button
+              class="icon-button review-close"
+              id="review-close"
+              type="button"
+              aria-label="Закрыть форму отзыва"
+            >
+              ×
+            </button>
+            <!-- Форма для отправки отзыва -->
+            <form id="review-form" class="review-form ym-disable-submit ym-hide-content" novalidate>
+              <div class="form-grid">
+                <div class="field">
+                  <label for="review-name">Подпись к отзыву</label
+                  ><input
+                    id="review-name"
+                    name="name"
+                    minlength="2"
+                    maxlength="80"
+                    required
+                    autocomplete="nickname"
+                    class="ym-disable-keys"
+                    placeholder="Ваше имя"
+                  />
+                </div>
+                <div class="field">
+                  <label for="review-rating">Оценка</label
+                  ><select id="review-rating" name="rating" required>
+                    <option value="">Выберите оценку</option>
+                    <option value="5">отлично</option>
+                    <option value="4">хорошо</option>
+                    <option value="3">нормально</option>
+                    <option value="2">не понравилось</option>
+                    <option value="1">плохо</option>
+                  </select>
+                </div>
+                <div class="field field-full">
+                  <label for="review-text">Ваш отзыв</label
+                  ><textarea
+                    id="review-text"
+                    name="text"
+                    rows="4"
+                    minlength="20"
+                    class="ym-disable-keys"
+                    maxlength="1000"
+                    required
+                    placeholder="Что понравилось? Что можно улучшить?"
+                  ></textarea>
+                </div>
+                <div class="field">
+                  <label for="review-full-name">ФИО для согласия</label>
+                  <input
+                    id="review-full-name"
+                    name="fullName"
+                    minlength="3"
+                    maxlength="200"
+                    required
+                    autocomplete="name"
+                    class="ym-disable-keys"
+                    aria-describedby="review-private-hint"
+                    placeholder="Фамилия, имя, отчество при наличии"
+                  />
+                </div>
+                <div class="field">
+                  <label for="review-phone">Телефон для согласия</label>
+                  <input
+                    id="review-phone"
+                    name="phone"
+                    type="tel"
+                    inputmode="tel"
+                    maxlength="40"
+                    required
+                    autocomplete="tel"
+                    class="ym-disable-keys"
+                    aria-describedby="review-private-hint"
+                    placeholder="+7 (900) 000-00-00"
+                  />
+                </div>
+                <p class="muted field-full review-private-hint" id="review-private-hint">
+                  ФИО и телефон нужны для оформления согласия. Они не публикуются вместе с отзывом и
+                  не используются для рекламных рассылок. Сайт не отправляет содержимое этих полей в
+                  сторонние сервисы или мессенджеры.
+                </p>
+                <div class="field field-full">
+                  <label for="review-conditions"
+                    >Условия публикации <span class="muted">(необязательно)</span></label
+                  >
+                  <textarea
+                    id="review-conditions"
+                    name="publicationConditions"
+                    rows="3"
+                    maxlength="1000"
+                    class="ym-disable-keys"
+                    placeholder="Если хотите установить дополнительные условия или запреты, укажите их здесь."
+                  ></textarea>
+                </div>
+              </div>
+              <div class="review-consents">
+                <label class="review-consent"
+                  ><input type="checkbox" name="privacyAcknowledged" required /><span
+                    >Я ознакомился с
+                    <a href="/privacy" target="_blank" rel="noopener noreferrer"
+                      >политикой обработки персональных данных</a
+                    >.</span
+                  ></label
+                >
+                <label class="review-consent"
+                  ><input type="checkbox" name="processingConsent" required /><span
+                    >Я даю
+                    <a href="/consent" target="_blank" rel="noopener noreferrer"
+                      >согласие на обработку персональных данных</a
+                    >
+                    для получения и проверки отзыва.</span
+                  ></label
+                >
+                <label class="review-consent"
+                  ><input type="checkbox" name="publicationConsent" required /><span
+                    >Я отдельно даю
+                    <a href="/publication-consent" target="_blank" rel="noopener noreferrer"
+                      >согласие на публикацию</a
+                    >
+                    оценки и текста отзыва на сайте.</span
+                  ></label
+                >
+                <label class="review-consent"
+                  ><input type="checkbox" name="publishName" /><span
+                    >Разрешаю также опубликовать подпись к отзыву. ФИО и телефон из закрытых полей
+                    не публикуются. Без этой отметки отзыв появится под именем «Гость».</span
+                  ></label
+                >
+              </div>
+              <button
+                class="button button-ghost review-legal-retry"
+                type="button"
+                id="review-legal-retry"
+                hidden
+              >
+                Повторить загрузку документов
+              </button>
+              <button class="button button-primary" type="submit">Отправить отзыв</button>
+              <p id="review-message" class="form-message" role="status" aria-live="polite"></p>
+            </form>
+          </div>
+        </div>
+      </section>
+      <!-- Секция "Контакты". -->
+      <section class="section contacts-section" id="contacts">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <h2>Ждём в Hunter</h2>
+            </div>
+          </div>
+          <p class="page-lead">Смоленск, пр-т. Строителей, 1/42. ТЦ Рай, 2 этаж.</p>
+          <div class="contacts-grid">
+            <div class="contact-info" id="booking">
+              <div class="contact-block">
+                <span>Адрес</span>
+                <h3>
+                  Смоленск<br />пр-т. Строителей, 1/42<br />
+                  ТЦ Рай, 2 этаж
+                </h3>
+              </div>
+              <div class="contact-block">
+                <span>Телефон</span
+                ><a class="contact-big-link" data-phone-link href="tel:+79156548842"
+                  ><span data-phone-text>+7 (915) 654-88-42</span></a
+                >
+              </div>
+              <div class="contact-block">
+                <span>Часы работы</span>
+                <p>Ежедневно, 10:00–20:00</p>
+              </div>
+              <div class="contact-block">
+                <span>Написать нам</span>
+                <div id="contact-chat-links" class="contact-socials">
+                  <span class="muted">Ссылки появятся после настройки.</span>
+                </div>
+              </div>
+              <a class="button button-primary" href="/booking">Выбрать время</a>
+              <p class="booking-unavailable" data-booking-ready="__BOOKING_READY__">
+                Онлайн-запись пока не подключена. Позвони нам, чтобы выбрать время.
+              </p>
+            </div>
+            <div class="contact-visuals">
+              <div
+                class="map-panel"
+                data-map-title="Карта: Hunter, Смоленск, проспект Строителей, 1/42, ТЦ Рай, 2 этаж"
+                data-map-src="https://yandex.ru/map-widget/v1/?ll=32.098368%2C54.767856&z=16&pt=32.098368%2C54.767856%2Cpm2org"
+              >
+                <div class="map-placeholder">
+                  <p>Карта Яндекса загружается после разрешения внешних сервисов и cookies.</p>
+                  <button class="button button-ghost" type="button" data-privacy-settings>
+                    Настроить cookies
+                  </button>
+                  <noscript>
+                    <p>
+                      Для встроенной карты нужен JavaScript. Адрес и ссылка на карту доступны ниже.
+                    </p>
+                  </noscript>
+                </div>
+                <a
+                  class="map-external"
+                  href="https://yandex.ru/maps/?ll=32.098368%2C54.767856&z=16&text=Смоленск%2C%20Строителей%2C%201%2F42"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Открыть карту <span aria-hidden="true">↗</span></a
+                >
+              </div>
+            </div>
+          </div>
+          <section class="legal-info" aria-labelledby="legal-info-title">
+            <h3 id="legal-info-title">Юридическая информация</h3>
+            <dl>
+              <div>
+                <dt>Официальный статус</dt>
+                <dd>[УКАЗАТЬ ОФИЦИАЛЬНЫЙ СТАТУС]</dd>
+              </div>
+              <div>
+                <dt>ФИО</dt>
+                <dd>[УКАЗАТЬ ФИО]</dd>
+              </div>
+              <div>
+                <dt>ОГРНИП</dt>
+                <dd>[УКАЗАТЬ ОГРНИП]</dd>
+              </div>
+              <div>
+                <dt>ИНН</dt>
+                <dd>[УКАЗАТЬ ИНН]</dd>
+              </div>
+              <div>
+                <dt>Государственная регистрация</dt>
+                <dd>[УКАЗАТЬ ДАТУ РЕГИСТРАЦИИ ИП]</dd>
+              </div>
+              <div>
+                <dt>Регистрирующий орган</dt>
+                <dd>[УКАЗАТЬ НАИМЕНОВАНИЕ РЕГИСТРИРУЮЩЕГО ОРГАНА]</dd>
+              </div>
+            </dl>
+          </section>
+        </div>
+      </section>
+    </main>
+    <!-- Подвал сайта -->
+    <footer class="site-footer">
+      <div class="container footer-top">
+        <a class="brand" href="/" aria-label="HUNTER, главная">
+          <img class="brand-badge" src="/images/hunter-label.webp" alt="" width="52" height="52" />
+          <span class="brand-name">HUNTER<small>BARBERSHOP · SMOLENSK</small></span></a
+        >
+        <p>
+          Сайт является учебным проектом для портфолио и не является официальным. Все совпадения
+          случайны.
+        </p>
+        <nav aria-label="Навигация в подвале">
+          <a href="#services">Услуги</a><a href="#masters">Мастера</a><a href="/booking">Запись</a
+          ><a href="#contacts">Контакты</a>
+        </nav>
+      </div>
+      <div class="container footer-bottom footer-main">
+        <span class="footer-copyright">© <span data-year></span> Hunter</span>
+        <div class="footer-legal-links">
+          <a href="/privacy">Политика обработки персональных данных</a>
+          <a href="/consent">Согласие на обработку данных</a>
+          <a href="/publication-consent">Согласие на публикацию отзыва</a>
+        </div>
+        <span class="footer-address">Смоленск, пр-т. Строителей, 1/42, ТЦ Рай, 2 этаж</span>
+      </div>
+      <p class="container footer-notice">
+        Информация на сайте носит ознакомительный и рекламный характер и не является публичной
+        офертой (ст. 437 ГК РФ). Актуальную стоимость уточняйте у администратора.
+      </p>
+    </footer>
+    <!-- Одна общая ссылка открывает тот же виджет YCLIENTS, что и кнопки в разделах. -->
+    <div class="booking-dock" role="region" aria-label="Быстрая запись и звонок">
+      <a class="button button-primary" href="/booking">Выбрать время</a>
+      <a class="button button-ghost dock-phone" data-phone-link href="tel:+79156548842"
+        >Позвонить</a
+      >
+    </div>
+    <!-- -->
+    <dialog class="photo-viewer" id="photo-viewer" aria-label="Просмотр фотографии">
+      <div class="photo-viewer-bar">
+        <span id="photo-viewer-count" aria-live="polite"></span>
+        <button class="icon-button" type="button" data-photo-close aria-label="Закрыть фотографию">
+          ×
+        </button>
+      </div>
+      <div class="photo-viewer-stage">
+        <button
+          class="icon-button"
+          type="button"
+          data-photo-prev
+          aria-label="Предыдущая фотография"
+        >
+          ←
+        </button>
+        <img id="photo-viewer-image" alt="" />
+        <button class="icon-button" type="button" data-photo-next aria-label="Следующая фотография">
+          →
+        </button>
+      </div>
+      <p id="photo-viewer-caption"></p>
+    </dialog>
+  </body>
+</html>
